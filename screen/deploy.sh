@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cat screenrc >> ~/.screenrc
+cat screenrc > ~/.screenrc
