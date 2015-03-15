@@ -1,0 +1,1 @@
+task 'sbuild', 'Prepare project for distribution.', ->
