@@ -47,11 +47,11 @@
 	<key>WindowState</key>
 	<dict>
 		<key>bundleDividerCollapsed</key>
-		<true/>
-		<key>bundlePositionOfDivider</key>
-		<real>0.0</real>
-		<key>dividerCollapsed</key>
 		<false/>
+		<key>bundlePositionOfDivider</key>
+		<real>401</real>
+		<key>dividerCollapsed</key>
+		<true/>
 		<key>eventLogLevel</key>
 		<integer>2</integer>
 		<key>name</key>
