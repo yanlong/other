@@ -9,4 +9,9 @@ git config --global alias.log1 'log --graph --abbrev-commit --decorate --date=re
 git config --global alias.log2 'log --graph --oneline --decorate --date=relative --all' --replace-all
 
 
+# user
+git config --global user.name "yanlong"
+git config --global user.email scicodist@gmail.com
+
+
 
