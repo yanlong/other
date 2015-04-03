@@ -13,5 +13,8 @@ git config --global alias.log2 'log --graph --oneline --decorate --date=relative
 git config --global user.name "yanlong"
 git config --global user.email scicodist@gmail.com
 
+# color
+git config --global color.ui auto
+
 
 
