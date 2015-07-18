@@ -21,7 +21,7 @@ execute()
  
 if [ ! -d "${targetpath}/${nowtime}/" ]
 then
- mkdir ${targetpath}/${nowtime}
+ mkdir -p ${targetpath}/${nowtime}
 fi
 execute
 echo "============== back end ${nowtime} =============="
