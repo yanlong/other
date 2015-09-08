@@ -1,0 +1,14 @@
+#!/bin/bash
+PWD=$(pwd)
+cd $PWD
+stash_dir=~/.svnstash
+mkdir -p $stash_dir
+stash_file=$stash_dir/stash.diff
+
+if [ X$1 = Xpop ];then
+    patch -p0 < $stash_file
+else
+    svn di > $stash_file
+    svn revert -R .
+fi
+
