@@ -10,8 +10,8 @@ dir=$2
 source .cr_conf
 [[ X$dir = X ]] && dir='.';
 
-eagle=$WD/eagle.py
-upload=$WD/upload.py
+eagle=$WD/eagle
+upload=$WD/upload
 
 if [ X"$msg" = X ];then
     echo 'no commit msg'
