@@ -39,6 +39,7 @@ echo '==> check code style done'
 # cd $WD
 # get svn username
 username=`grep username ~/.subversion/auth/svn.simple/* --after-context=2 | tail -1 | awk -F- '{print $2}'`
+[[ -z "$username" ]] && username=`grep username ~/.subversion/auth/svn.simple/* --after-context=2 | tail -1 | awk -F- '{print $1}'`
 [[ ! -z "$username" ]]
 check_result 'get svn username'
 # mentor

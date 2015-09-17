@@ -5,9 +5,15 @@ files=(
 upload
 eagle
 cr.sh
-.cr_conf
 )
 
-for file in ${files[@]};do
+function deploy() {
+    file=$1
     curl $base_url/$file > $file && chmod 755 $file && svn add $file
+}
+
+
+for file in ${files[@]};do
+    deploy $file
 done
+[[ ! -e ./.cr_conf ]] && deploy .cr_conf
