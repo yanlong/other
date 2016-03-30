@@ -1,0 +1,8 @@
+#! /bin/bash
+mode=0 # 0:先ci后评审，1:先评审后ci
+
+# 项目配置，最好配置所有的项目参与者
+reviews=yanlong,mayihui
+
+# 个人配置，适合新人配置自己的导师
+# ${me}=${mentor}
