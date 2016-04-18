@@ -1,55 +1,85 @@
-" liukui authorized only
-set nocompatible
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,gb18030,big5,euc-jp,euc-kr,latin1
-set encoding=utf-8
-set termencoding=&encoding
-set fileformats=unix
-set display=lastline
-set viewoptions=cursor,folds
-set viewdir=~/.vimview
+" 将 pathogen 自身也置于独立目录中，需指定其路径 
+runtime bundle/pathogen/autoload/pathogen.vim
+" 运行 pathogen
+execute pathogen#infect()
+
+" 配色方案
+set background=dark
+colorscheme molokai
+
+" 禁止光标闪烁
+set gcr=a:block-blinkon0
+" 禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+" 禁止显示菜单和工具条
+set guioptions-=m
+set guioptions-=T
+
+" 总是显示状态栏
+set laststatus=2
+" 显示光标当前位置
+set ruler
+" 开启行号显示
+set number
+" 高亮显示当前行/列
+set cursorline
+set cursorcolumn
+" 高亮显示搜索结果
 set hlsearch
 
-au BufWinLeave * if bufname("%") != "" | mkview
-au BufWinEnter * if bufname("%") != "" | silent loadview
-au BufNewFile,Bufread *.ros,*.inc,*.php set keywordprg=":help"
-let mapleader = ","
-let g:fencview_autodetect = 1
-nmap <leader>w :w!<cr>
-nmap <leader>w :w!<cr> 
-nmap <leader>r :!/home/work/php/bin/php %<cr>
-nmap <leader>l :!/home/work/php/bin/php -ln %<cr>
-nmap <leader>q :q!<cr>
-nmap <silent> <F6> :set number!<CR>
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
-set autoindent
-set smartindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set nonu
-set list
-set listchars=tab:>-,trail:-
-set expandtab
-set ruler
-set nocp
-set backspace=indent,eol,start
-set paste
+" 设置 gvim 显示字体
+set guifont=YaHei\ Consolas\ Hybrid\ 11.5
 
-filetype on
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+" 禁止折行
+set nowrap
+
+" 设置状态栏主题风格
+let g:Powerline_colorscheme='solarized256'
+
+" 开启语法高亮功能
+syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
 syntax on
-filetype plugin indent on
 
-" Always show status line, even for one window
-set laststatus=2
-set statusline=%F%*\ %y[%{&fenc}]\ %2*%r%m%*\ %l,%c\ %=%l/%L\ (%p%%)%*\%{strftime('%Y-%m-%d-%H:%M')}
-set viminfo='20,\"50,:20,%,n~/.viminfo
+" 自适应不同语言的智能缩进
+filetype indent on
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=4
+" 设置格式化时制表符占用空格数
+set shiftwidth=4
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
 
-" set colorscheme
- colorscheme koehler
-" colorscheme evening
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
-let Tlist_Ctags_cmd="/usr/bin/ctags"
-let Tlist_Inc_Winwidth=0
-set nu
+" 基于缩进或语法进行代码折叠
+"set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+" 操作：za，打开或关闭当前折叠；zM，关闭所有折叠；zR，打开所有折叠。
+
+let g:javascript_enable_domhtmlcss=1
+
+set backspace=2
+
+" 编码格式
+set encoding=utf-8
+set fenc=cp936
+set fileencodings=cp936,ucs-bom,utf-8
+if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
+    set ambiwidth=double
+endif
+set nobomb
